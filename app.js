@@ -6,7 +6,7 @@
   MyFirstController.$inject = ['$scope', '$filter', '$injector'];
 
   function MyFirstController($scope, $filter, $injector) {
-    $scope.name = "Greg";
+    $scope.name = "";
     $scope.total = calculateNumericForString($scope.name);
 
     $scope.upper = function() {
