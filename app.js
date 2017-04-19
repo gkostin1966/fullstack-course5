@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   angular.module('myFirstApp', [])
-    .controller('MyFirstController', MyFirstController);
+    .controller('MyFirstController', ['$scope', '$filter', '$injector', MyFirstController]);
 
   function MyFirstController($scope, $filter, $injector) {
     $scope.name = "Greg"
