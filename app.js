@@ -12,6 +12,7 @@
     $scope.upper = function() {
       var upCase = $filter('uppercase');
       $scope.name = upCase($scope.name);
+      $scope.displayNumeric();
     };
 
     $scope.displayNumeric = function() {
