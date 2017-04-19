@@ -3,9 +3,14 @@
   angular.module('myFirstApp', [])
     .controller('MyFirstController', MyFirstController);
 
-  function MyFirstController($scope) {
+  function MyFirstController($scope, $filter, $injector) {
     $scope.name = "Greg"
     $scope.total = calculateNumericForString($scope.name);
+
+    $scope.upper = function() {
+      var upCase = $filter('uppercase');
+      $scope.name = upCase($scope.name);
+    };
 
     $scope.displayNumeric = function() {
       $scope.total = calculateNumericForString($scope.name);
@@ -18,5 +23,7 @@
       }
       return totalStringValue;
     }
+
+    console.log($injector.annotate(MyFirstController));
   }
 })();
