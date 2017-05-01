@@ -3,7 +3,11 @@
 <h3>Menu Categories</h3>
 
 <ul>
-    <li ng-repeat="category in ctrl.categories" ui-sref="items({id: $index})">
-        {{ category.quantity }} of {{ category.name }}
+    <li ng-repeat="category in ctrl.categories" ui-sref="items({id: category.short_name})">
+        <!--{{ category.id }}-->
+        <!--{{ category.short_name }}-->
+        {{ category.name }}
+        <!--{{ category.special_instructions }}-->
+        <!--{{ category.url }}-->
     </li>
 </ul>
