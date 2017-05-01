@@ -7,8 +7,8 @@ angular.module('MenuApp')
 
 MainShoppingListController.$inject = ['MenuDataService', 'items'];
 function MainShoppingListController(MenuDataService, items) {
-  var mainlist = this;
-  mainlist.items = items;
+  var categories = this;
+  categories.items = items;
 }
 
 })();
