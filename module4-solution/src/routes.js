@@ -19,11 +19,11 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     templateUrl: 'src/templates/home.template.html'
   })
 
-  // Premade list page
+  // Catagories list page
   .state('categories', {
     url: '/categories',
     templateUrl: 'src/templates/categories.template.html',
-    controller: 'MenuController as menu',
+    controller: 'MenuController as ctrl',
     resolve: {
       categories: ['MenuDataService', function (MenuDataService) {
         return MenuDataService.getCategories();
@@ -31,10 +31,16 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     }
   })
 
-  .state('categories.itemDetail', {
-    url: '/item-detail/{itemId}',
-    templateUrl: 'src/templates/item-detail.template.html',
-    controller: "ItemDetailController as itemDetail"
+  // Items list page
+  .state('items', {
+    url: '/categories/{id}',
+    templateUrl: 'src/templates/items.template.html',
+    controller: 'ItemsController as ctrl',
+    resolve: {
+      items: ['MenuDataService', function (MenuDataService) {
+        return MenuDataService.getCategoryItems();
+      }]
+    }
   });
 
 }
