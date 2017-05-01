@@ -45,13 +45,13 @@ function MenuDataService($q, $timeout) {
 
   // Simulates call to server
   // Returns a promise, NOT items array directly
-  service.getCategoryItems = function () {
+  service.getCategoryItems = function (id) {
     var deferred = $q.defer();
 
     // Wait 2 seconds before returning
     $timeout(function () {
       // deferred.reject(items);
-      deferred.resolve(categories);
+      deferred.resolve([categories[id]]);
     }, 800);
 
     return deferred.promise;
