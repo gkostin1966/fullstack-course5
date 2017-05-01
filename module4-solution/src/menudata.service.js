@@ -1,7 +1,7 @@
 (function () {
 'use strict';
 
-angular.module('MenuApp')
+angular.module('data')
 .service('MenuDataService', MenuDataService);
 
 
@@ -31,7 +31,7 @@ function MenuDataService($q, $timeout) {
 
   // Simulates call to server
   // Returns a promise, NOT items array directly
-  service.getCategories = function () {
+  service.getAllCategories = function () {
     var deferred = $q.defer();
 
     // Wait 2 seconds before returning
@@ -45,13 +45,13 @@ function MenuDataService($q, $timeout) {
 
   // Simulates call to server
   // Returns a promise, NOT items array directly
-  service.getCategoryItems = function (id) {
+  service.getItemsForCategory = function (categoryShortName) {
     var deferred = $q.defer();
 
     // Wait 2 seconds before returning
     $timeout(function () {
       // deferred.reject(items);
-      deferred.resolve([categories[id]]);
+      deferred.resolve([categories[categoryShortName]]);
     }, 800);
 
     return deferred.promise;
